@@ -24,16 +24,13 @@ class BoundingBox
   end
 
   def contains_point?(x,y)
+    inside = false
     if y <= top && y >= bottom
       if x <= right && x >= left
-        true
+        inside = true
       end
-    else
-      false
     end
+    inside
   end
 
 end
-
-test_box = BoundingBox.new(5.0, 10.0, 25.0, 50.0)
-puts test_box.contains_point?(0.0, 0.0)
